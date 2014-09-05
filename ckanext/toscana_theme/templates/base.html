@@ -1,0 +1,29 @@
+{% ckan_extends %}
+
+{% block styles %}
+  {{ super() }}
+
+  {#% resource 'rt_theme/css/bootstrap.css' %#}
+  {% resource 'rt_theme/css/stili.css' %}
+  {% resource 'rt_theme/css/responsive.css' %}
+
+  {% resource 'rt_theme/font-awesome/css/font-awesome.css' %}
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|Merriweather:400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+  {% resource 'rt_theme/css/font_style.css' %}
+
+  <!-- IE8 support for HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+	{% resource 'rt_theme/js/html5shiv.js' %}
+	{% resource 'rt_theme/js/respond.js' %}
+  <![endif]-->  
+  {#% resource 'vendor/jquery.js' %#}
+  {% resource 'rt_theme/js/background_size_emu.js' %}
+  {#% resource 'rt_theme/js/bootstrap.js' %#}
+  {% resource 'rt_theme/js/init.js' %}
+
+{% endblock %}
+
+{% block bodytag %} 
+  {{ super() }}
+  class="index"
+{% endblock %}

@@ -1,0 +1,415 @@
+@media (max-width: 1199px) {
+    #header .box h2{
+        font-size:24px;
+    }
+    #header .box .titolo {
+        padding-right: 80px;
+    }
+    .icona-box {
+        font-size: 80px;
+        height: 80px;
+        position: absolute;
+        right: -10px;
+        top: -15px;
+        width: 80px;
+    }
+    .icona-box.icon-idea {
+        font-size: 90px;
+        height: 90px;
+        right: -15px;
+        top: -20px;
+        width: 90px;
+    }
+    .div-cell {
+        font-size: 0.86em;
+    }
+}
+
+@media (max-width: 1023px) {
+    #header .box h2{
+        font-size: 19px;
+        text-align: center;
+    }
+    #header .box .titolo {
+        padding-right: 0px;
+        padding-top: 90px;
+    }
+    #header .box-wrapper {
+        padding: 20px 15px;
+    }
+    
+    .icona-box {
+        font-size: 80px;
+        height: 80px;
+        position: absolute;
+        text-align: center;
+        right: 0;
+        top: 0;
+        width: 100%;
+    }
+    .icona-box.icon-idea {
+        font-size: 90px;
+        height: 90px;
+        right: 0;
+        top: 0px;
+        width: 100%;
+    }
+    #header .box .intro{
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .brand-open-toscana{
+        min-width: 340px;
+    }
+}
+
+@media (max-width: 991px) {
+    .brand-open-toscana .logo-toscana{
+        display: none;
+    }
+    .brand-open-toscana a.logo{
+        background: transparent;
+        margin-left: 0;
+        padding-left: 5px;
+    }
+    #ricerca h2{
+        text-align: center;
+    }
+    .footer_logo {
+        float: left;
+    }
+    .with-sidebar .stat{
+        width: 100%;
+    }
+    .with-sidebar .stat .div-cell {
+        display: block;
+        float: left;
+        width: 50%;
+        border-bottom: 1px solid #FFFFFF;
+    }
+    
+    .interna #content h1{
+        font-size: 1.8em;
+    }
+}
+
+@media(max-width:800px) {
+    .with-sidebar  .row-content{
+        position: relative;
+    }
+    #sidebar-left{
+        /*display: none;*/
+        width: 0%;
+        padding: 0 !important;
+        visibility: hidden;
+        transition: all 200ms ease;
+        position: absolute;
+        left: -20px;
+        z-index: 10;
+        opacity: .96;
+    }
+    
+    #sidebar-left.view{
+        padding: 15px !important;
+        visibility: visible;
+        transition: width 160ms ease;
+        width: 80%;
+    }
+    
+    .responsive-button{
+         background-color: #3E3D40;
+        border: 1px solid #000000;
+        color: #FFFFFF;
+        display: block !important;
+        font-size: 2em;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        width: 50px;
+        z-index: 999;
+        position: absolute;
+        cursor: pointer;
+        left: 0;
+    }
+    
+    
+    .right-zone .navbar-toggle .icon-bar{
+        width: 100%;
+        background-color: #161A1D;
+    }
+    
+    .form-intro p {
+        font-size: 1.5em;
+    }
+}
+@media(max-width:767px) {
+    .navbar{
+        display: block;
+        border: none;
+        background-color: transparent;
+        height: 58px;
+        width: 50px;
+        margin-bottom: 0px !important;
+        float: right;
+    }
+    .navbar-default .navbar-toggle{
+        /*color: #161A1D;*/
+        display: block;
+        float: right;
+        font-size: 0.86em;
+        height: 58px;
+        line-height: 58px;
+        overflow: hidden;
+        padding: 0 10px;
+        margin: 0;
+        text-align: center;
+        border: none;
+        width: 50px;
+    }
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus{
+        background-color: transparent;
+    }
+    #nav-interna-mobile{
+        display: block !important;
+    }
+    .right-zone .action a{
+        padding: 0 10px;
+        width: 50px;
+    }
+    .right-zone .action span{
+        display: none;
+    }
+    .right-zone .action i{
+        font-size: 2em;
+        top: 5px;
+        margin-left: 0;
+    }
+    #nav-interna,
+    #intro .testo-intro{display: none;}
+    .interna #ricerca,
+    .with-intro .jumbotron{
+       margin-top: 58px;
+    }
+    .navbar-collapse{
+        overflow: hidden;
+        height: 1px;
+        background-color: transparent;
+        position: fixed;
+        top:58px;
+        width: 100%;
+        z-index: 1000;
+    }
+    .navbar-collapse.in{
+        height: auto;
+    }
+    ul.navbar-nav{
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 15px 0;
+        background-color: rgba(0, 0, 0, 0.78);
+    }
+    ul.navbar-nav li{
+        border-bottom: 1px solid #5E5B5B;
+        width: 75%;
+        margin: 0 auto;
+    }
+    ul.navbar-nav li:last-child{
+        border-bottom: none;
+    }
+    .navbar-nav > li > a{
+        height: 60px;
+        line-height: 60px;
+        padding: 0 30px;
+        color: #FFF;
+        font-size: 1.15em;
+    }
+    .navbar-nav > li > a:hover,
+    .navbar-nav > li > a:focus{
+        background-color: transparent;
+        color: #00A4D5;
+    }
+    .interna #content h1{
+        font-size: 1.5em;
+    }
+    
+    .tema-descr-area .tema-descr,
+    .tema-tag h4,
+    .tema-tag li a{
+        font-size: 1em;
+    }
+    
+    #header #dataset,
+    #header #compila-form{
+        margin-bottom: 30px;
+    }
+    
+    #ricerca select{
+        width: 80%;
+        margin: 10px auto;
+    }
+    
+    #ricerca input#testo{
+        width: 80%;
+        margin: 20px auto;
+    }
+    
+    form.form-inline{
+        text-align: center;
+    }
+    
+    #tabs-dati{margin-top: 10px;}
+    .visitati-wrapper{margin: 40px 0 10px 0;}
+    
+    .stat{
+        width: 100%;
+    }
+    .stat .div-cell {
+        display: block;
+        float: left;
+        width: 50%;
+        border-bottom: 1px solid #FFFFFF;
+    }
+    
+}
+
+/* custom breakpoint per mobile e small-tablet */
+@media(max-width:600px) {
+    .overlay .my-container {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .overlay .sites a {
+        font-size: 1.5em;
+    }
+    .overlay .sites a img{
+        max-width: 55px;
+    }
+    
+    #news h2.titoletto-sezione{
+        margin-bottom: 0;
+    }
+    
+    #news .notizia{
+        margin-bottom: 30px;
+    }
+    #news .twitter{
+        margin-top: 20px;
+    }
+    #twitter-widget-0{
+        width: 100% !important;
+    }
+    
+    .stat{
+        width: 100%;
+    }
+    .stat .div-cell,
+    .with-sidebar .stat .div-cell{
+        display: block;
+        float: left;
+        width: 100%;
+        border-bottom: 1px solid #FFFFFF;
+    }
+}
+
+@media(max-width:480px) {
+    .col-xs-6{
+        width: 100%;
+    }
+    #main {
+        padding: 30px 0;
+    }
+    .tema {
+        background-color: rgba(0, 0, 0, 0);
+        margin: 0 0 30px;
+    }
+    
+    .interna #content h1{
+        font-size: 1.3em;
+    }
+    
+    .brand-open-toscana .payoff{
+        display: none;
+    }
+    .brand-servizi-toscana .blue{
+        display: block;
+    }
+    .brand-servizi-toscana .text{
+        line-height: 20px !important;
+        padding: 10px 0;
+        display: block;
+    }
+    .overlay .sites ul,
+    .overlay .login-form .form-wrapper{
+        margin: 70px 0 0 0;
+    }
+    
+    .overlay .my-container {
+        margin: 0 auto;
+        width: 90%;
+    }
+    .overlay ul li{
+        padding-left: 30px;
+        height: 70px;
+        line-height: 70px;
+    }
+    
+    .overlay .sites a {
+        font-size: 1.05em;
+    }
+    .overlay .sites a img{
+        max-width: 36px;
+    }
+    
+    footer .inner{
+        display: block;
+        height: auto !important;
+    }
+    
+    footer .footer-col {
+        margin-bottom: 40px;
+    }
+    .img-footer{
+        text-align: center !important;
+    }
+    .footer_logo {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    footer .font_titolo {
+        font-size: 14px;
+    }
+    footer .font_corpo{
+        font-size: 13px;
+    }
+    
+    #button-area{
+        margin-top: 0;
+    }
+    #button-area .bottone-default,
+    #button-area .bottone-blue{
+        margin-top: 15px;
+    }
+    
+    
+}
+
+@media(max-width:479px) {
+    .right-zone{
+        min-width: 150px;
+    }
+    .right-zone .action a,
+    .navbar-default .navbar-toggle{
+        padding: 0 8px;
+        width: 36px;
+    }
+    .navbar-nav > li > a{
+        font-size: 1.05em;
+    }
+    #twitter-widget-0{
+        width: 300px !important;
+    }
+}
