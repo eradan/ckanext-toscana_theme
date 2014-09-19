@@ -1,0 +1,79 @@
+{% block header_wrapper %}
+{% block header_account %}
+
+<!-- ***********    TOP BAR	    *********** -->
+    <div id="top-bar" class="container-fluid">
+        <div class="row bar-container clearfix">
+            <div class="col-xs-4 no-padding brand brand-open-toscana">
+                <a class="logo-toscana" href="http://www.regione.toscana.it" title="Regione Toscana"><img src="/images/logo_toscana_payoff.jpg" alt="Logo Regione Toscana" /></a>
+                <a class="logo" href="/">
+                    <img src="/images/tondo_rosso.png" alt="logo open toscana" /><span class="payoff">pen<span class="red">Toscana</span></span>
+                </a>
+            </div>
+            <div class="col-xs-4 no-padding brand-servizi-toscana text-center">
+                <a class="text" href="/"><span class="blue">Dati</span>Toscana</a>
+            </div>
+            <div class="col-xs-4 pull-right no-padding right-zone">
+                <div class="action clearfix">
+                
+                    {% if c.userobj %}
+
+                      <div class="account avatar authed" data-module="me" data-me="{{ c.userobj.id }}">
+                        <ul class="unstyled">
+                          {% block header_account_logged %}
+                          {% if c.userobj.sysadmin %}
+                            <li>
+                              <a href="{{ h.url_for(controller='admin', action='index') }}" title="{{ _('Sysadmin settings') }}">
+                                <i class="icon-legal"></i>
+                              </a>
+                            </li>
+                          {% endif %}
+                          <li>
+                            <a href="{{ h.url_for(controller='user', action='read', id=c.userobj.name) }}" class="image" title="{{ _('View profile') }}">
+                              {{ h.gravatar((c.userobj.email_hash if c and c.userobj else ''), size=22) }}
+                              <span class="username">{{ c.userobj.display_name }}</span>
+                            </a>
+                          </li>
+                          {% set new_activities = h.new_activities() %}
+                          <li class="notifications {% if new_activities > 0 %}notifications-important{% endif %}">
+                            {% set notifications_tooltip = ngettext('Dashboard (%(num)d new item)', 'Dashboard (%(num)d new items)', new_activities) %}
+                            <a href="{{ h.url_for(controller='user', action='dashboard') }}" title="{{ notifications_tooltip }}">
+                              <i class="icon-dashboard"></i>
+                              <span>{{ new_activities }}</span>
+                            </a>
+                          </li>
+                          {% block header_account_settings_link %}
+                            <li>
+                              <a href="{{ h.url_for(controller='user', action='edit', id=c.userobj.name) }}" title="{{ _('Edit settings') }}">
+                                <i class="icon-cog"></i>
+                              </a>
+                            </li>
+                          {% endblock %}
+                          {% block header_account_log_out_link %}
+                            <li>
+                              <a href="{{ h.url_for('/user/_logout') }}" title="{{ _('Log out') }}">
+                                <i class="icon-signout"></i>
+                              </a>
+                            </li>
+                          {% endblock %}
+                          {% endblock %}
+                        </ul>
+                      </div>
+                    
+                    {% else %}
+                      <a class="altri-siti" href="#"><span>altri siti</span><i class="fa fa-angle-down"></i></a>
+                        <a href="{{ h.url_for('/user/login') }}" title="Login">
+                          LOGIN
+                          <i class="fa fa-lock"></i>
+                        </a>
+                      {#% link_for _('Log in'), controller='user', action='login' %#}  
+                    {% endif %}
+                    <!--<a class="login" href="#"><span>LOGIN</span><i class="fa fa-lock"></i></a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- ***********    End TOP BAR	    *********** -->
+
+{% endblock %}   
+{% endblock %}

@@ -1,0 +1,8 @@
+{% set tags = h.get_facet_items_dict('tags', limit=3) %}
+{% set placeholder = _('Cerca dataset...') %}
+
+  <form class="form-inline" method="get" action="{% url_for controller='package', action='search' %}" role="form">
+      <input type="text" class="form-control" name="q" value="{{ q }}" autocomplete="off" placeholder="{{ placeholder }}" id="testo"/>
+      <button type="submit" class="btn btn-dati inlinea">{{ _('Search') }}</button>
+  </form>
+

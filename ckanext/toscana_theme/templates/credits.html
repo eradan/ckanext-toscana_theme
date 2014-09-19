@@ -1,0 +1,67 @@
+{% extends "page.html" %}
+<body{% block bodytag %} data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" class="interna with-intro" {% endblock %}>
+    
+{% block breadcrumb_content %}
+  <li class="active"><a href="#">Credits</a></li>
+{% endblock %}
+
+    {% block main_content_class %}col-xs-12{% endblock %}
+
+    {% block primary_content %}
+    
+        <div class="row">
+            <div class="span4"></div>
+            <div class="span7"><h2 class="page_heading">Credits</h2></div>
+        </div>
+
+        <div class="row">
+            <div class="span4">
+                <img width="200" src="/images/logo_toscana_payoff.jpg">
+            </div>
+            <div class="span7">
+                <h3>Regione Toscana</h3>
+                <p>
+                    	Regione Toscana - Settore Infrastrutture e Tecnologie<br/>
+			Responsabile del settore: Ing. Laura Castellani<br>
+			Responsabile del progetto: dott. Walter Volpi</p>
+			<p>Gruppo di Lavoro per gli Open Data  istituito ai sensi della
+			<a href="http://goo.gl/QIYF6I">delibera n. 23</a> del 21/01/2013
+			dal titolo "Realizzazione piattaforma open data e approvazione
+			linee guida recanti criteri generali per gli open data in Regione Toscana" nella seduta del
+			Comitato tecnico di direzione in data 24/04/2013.
+			Il gruppo di lavoro ha le seguenti funzioni: eseguire e coordinare tutte le attività
+			necessarie per l'attuazione della deliberazione n. 23 del 21/01/2013,
+			affrontare tutti gli aspetti legati alla pubblicazione degli open data
+			nella nuova sezione del sito web istituzionale e sostenere l’opportuna attività di divulgazione.
+			Il gruppo di lavoro è composto da: Laura Castellani (responsabile del gruppo di lavoro),
+			Walter Volpi, Fernanda Faini, Claudio Martini, Antonella Barlacchi, Lorena Gazzini, Marica Ugoni Marchetto, Leonardo Borselli, Mariella Lenzi, Viviana Cossi (DG Organizzazione); 				Susanna Cressati, Emiliano Ricci (DG Presidenza); Walter Pratesi (DG Mobilità, infrastrutture e trasporto pubblico locale)."
+		</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span4">
+                <img width="200" src="/images/logo_hyperborea.png">
+            </div>
+            <div class="span7">
+                <h3>Hyperborea</h3>
+                <p>
+                    Realizzazione a cura di Hyperborea Srl - <a href="http://www.hyperborea.com/">http://www.hyperborea.com/</a><br/><br/></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span4">
+                <img width="100" src="/images/logo_ckan.jpg">
+            </div>
+            <div class="span7">
+                <h3>CKAN</h3>
+                <p>
+                   Powered by CKAN - <a href="http://ckan.org/">http://ckan.org.eu/</a><br><br></p>
+            </div>
+        </div>		
+
+    {% endblock %}
+
+</body>
+

@@ -1,0 +1,28 @@
+{% ckan_extends %}
+
+{% block navDataset %} class="pulsante active" {{ super() }} {% endblock %}
+{% block navDatasetMobile %} class="pulsante active" {{ super() }} {% endblock %}
+
+{% block ricercaSection %}
+  {% set placeholder = _('Cerca dataset...') %}
+    <!-- *****  RICERCA    ***** -->
+    <section id="ricerca" class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-3  col-lg-2">
+                    <h2>Cerca dati</h2>
+                </div>
+                <div class="col-xs-12 col-md-9 col-lg-10">
+                    <form class="form-inline" role="form" method="get" data-module="select-switch">
+                            <label class="sr-only" for="testo">Inserisci testo</label>
+      			    <input id="testo" type="text" class="form-control search" name="q" value="{{ c.q }}" autocomplete="off" placeholder="{{ placeholder }}">
+                            <button type="submit" value="search" class="btn btn-dati inlinea">Cerca</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+
