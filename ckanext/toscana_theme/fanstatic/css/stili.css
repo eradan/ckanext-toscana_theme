@@ -81,7 +81,7 @@ h2.titoletto-sezione{
     line-height: 58px;
     margin-left: 15px;
     padding-left: 15px;
-    background: url("../images/pipe.png") left center no-repeat transparent;
+    background: url("/images/pipe.png") left center no-repeat transparent;
 }
 #top-bar .logo-toscana img{
     max-height: 58px;
@@ -250,7 +250,7 @@ h2.titoletto-sezione{
 /* header */
 #header{
     margin-top: 59px;
-    background: url("../images/sfondo_header.jpg") no-repeat top left;
+    background: url("/images/sfondo_header.jpg") no-repeat top left;
     background-size: cover;
     -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -265,32 +265,32 @@ h2.titoletto-sezione{
 #header #compila-form .box-wrapper{background: rgba(255, 255, 255, 0.8);}
 #header #partecipa .box-wrapper{background: rgba(253, 200, 12, 0.9);}
 
-#header .box{
+#header .box-custom{
     position: relative;
 }
 
-#header .box .titolo{
+#header .box-custom .titolo{
     margin-bottom: 44px;
     padding-right: 100px;
 }
 
-#header .box h2{
+#header .box-custom h2{
     text-transform: uppercase;
     font-weight: 700;
     font-size: 28px;
 }
 
-#header .box .intro{
+#header .box-custom .intro{
     font-size: 12px;
     font-family: Merriweather, "Times New Roman", serif;
     font-weight: 700;
 }
 
-.box .bottone{
+.box-custom .bottone{
     margin-top: 30px;
 }
 
-.box .bottone a{
+.box-custom .bottone a{
     display: block;
     width: 100%;
     color: #FFFFFF;
@@ -398,7 +398,7 @@ h2.titoletto-sezione{
 }
 /* dati - homepage */
 .index #dati{
-    background: url("../images/sfondo_dati.png") no-repeat center center transparent;
+    background: url("/images/sfondo_dati.png") no-repeat center center transparent;
     background-size: cover;
     -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -514,7 +514,7 @@ h3.titolo-news{
 **************** */
 /* intro */
 #intro{
-    background: url("../images/sfondo_sviluppa.jpg") no-repeat top center #00A4D5;
+    background: url("/images/sfondo_sviluppa.jpg") no-repeat top center #00A4D5;
     background-size: cover;
     -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -541,7 +541,7 @@ h3.titolo-news{
     position: absolute;
     right: 0;
     bottom: 0;
-    background: url("../images/lampadine.png") no-repeat left bottom transparent;
+    background: url("/images/lampadine.png") no-repeat left bottom transparent;
     height: 100%;
     width: 34%;;
 }
@@ -1011,7 +1011,7 @@ footer .font_corpo {
 }
 .footer_socials li {
 	text-align: center;
-    margin-left: 16px;
+    margin-left: 6px;
 }
 .footer_socials li a{
     color: #3D3D3F;
@@ -1081,19 +1081,19 @@ footer .img-logo{
 ****** ...Stili compatibilità IE... ******
 **************** */ 
 .lte9 .footer_socials li a i{
-    background: url("../images/social_circle.png") no-repeat center center transparent;
+    background: url("/images/social_circle.png") no-repeat center center transparent;
 }
 
 .lte9 .overlay .sites,
 .lte9 .overlay .login-form{
-    background: url("../images/px_grigio_trasp.png") repeat; 
+    background: url("/images/px_grigio_trasp.png") repeat; 
 }
 .lte8 #header{
     padding: 0;
-    background: url("../images/repeat_header.png") repeat-x top left #7b8cc4;
+    background: url("/images/repeat_header.png") repeat-x top left #7b8cc4;
 }
 .lte8 #header .container{
-    background: url("../images/sfondo_dati_1170.jpg") no-repeat top left  transparent;
+    background: url("/images/sfondo_dati_1170.jpg") no-repeat top left  transparent;
     padding: 30px 0;
 }
 .lte8 #dati{
@@ -1101,7 +1101,7 @@ footer .img-logo{
     background: #e7e7e7;
 }
 .lte8 #dati .container{
-    background: url("../images/sfondo_dati_1170_b.jpg") no-repeat top center  transparent;
+    background: url("/images/sfondo_dati_1170_b.jpg") no-repeat top center  transparent;
     padding: 30px 0;
 }
 .lte8 #intro{
@@ -1109,12 +1109,12 @@ footer .img-logo{
     background: #26a5d8;
 }
 .lte8 #intro .container{
-    background: url("../images/sfondo_dati_1170_c.jpg") no-repeat bottom center transparent;
+    background: url("/images/sfondo_dati_1170_c.jpg") no-repeat bottom center transparent;
     padding: 30px 0;
 }
-.lte9 #header #dataset .box-wrapper{background: url("../images/px_blu_trasp.png") repeat;}
-.lte9 #header #compila-form .box-wrapper{background: url("../images/px_bianco_trasp.png") repeat;}
-.lte9 #header #partecipa .box-wrapper{background: url("../images/px_giallo_trasp.png") repeat;}
+.lte9 #header #dataset .box-wrapper{background: url("/images/px_blu_trasp.png") repeat;}
+.lte9 #header #compila-form .box-wrapper{background: url("/images/px_bianco_trasp.png") repeat;}
+.lte9 #header #partecipa .box-wrapper{background: url("/images/px_giallo_trasp.png") repeat;}
 
 /*.lte9 .right-zone.closed{
     background: transparent;
