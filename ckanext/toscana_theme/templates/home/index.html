@@ -1,4 +1,5 @@
-{% extends "page.html" %}
+{% ckan_extends %}
+<body{% block bodytag %}  data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" class="index" {% endblock %}>
 {% set homepage_style = ( g.homepage_style or '1' ) %}
 
 {% block subtitle %}{{ _("Welcome") }}{% endblock %}
@@ -6,16 +7,170 @@
 
 {% block maintag %}maintag{% endblock %}
 {% block toolbar %}toolbar{% endblock %}
+  
+
 
 
 {% block content %}
 
-  <div class="homepage layout-{{ homepage_style }}">
+  
+<!-- *****  INTRO    ***** -->
+<section class="jumbotron" id="header">
     <div class="container">
-      {{ self.flash() }}
+        <div class="row">
+            <!-- box dataset -->
+            <div id="dataset" class="col-xs-12 col-sm-4 box-home">
+                <div class="box-wrapper">
+                    <div class="box-custom">
+                        <div class="titolo white">
+                            <h2>open data: inizia la tua ricerca</h2>
+                        </div>
+                        <div class="intro">Regione Toscana raccoglie in questo portale tutti i dati reperibili e li mette a disposizione dei cittadini.</div>
+                        <div class="bottone"><a href="/dataset">ACCEDI AI DATASET</a></div>
+                        <i class="icon-cerca icona-box white"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- box compila form -->
+            <div id="compila-form" class="col-xs-12 col-sm-4 box-home">
+                <div class="box-wrapper">
+                    <div class="box-custom">
+                        <div class="titolo blue">
+                            <h2>Sviluppa la tua idea con noi</h2>
+                        </div>
+                        <div class="intro">Se hai un'idea che vuoi realizzare e non trovi le informazioni che ti occorrono, contattaci e ti aiuteremo a sviluppare il tuo progetto.</div>
+                        <div class="bottone"><a href="/contact-us">COMPILA IL FORM DI RICHIESTA</a></div>
+                        <i class="icon-idea icona-box blue"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- box partecipa -->
+            <div id="partecipa" class="col-xs-12 col-sm-4 box-home">
+                <div class="box-wrapper">
+                    <div class="box-custom">
+                        <div class="titolo white">
+                            <h2>Condividi la tua esperienza</h2>
+                        </div>
+                        <div class="intro">Fai crescere la nostra community! Scrivici e condividi con tutti in che modo hai utilizzato i dati forniti dal nostro portale.</div>
+                        <div class="bottone"><a class="nuovafinestra" href="http://open.toscana.it/web/open-data/home">PARTECIPA ALLA STANZA OPEN DATA</a></div>
+                        <i class="icon-condividi icona-box white"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
     </div>
-    {% block primary_content %}
-      {% snippet "home/layout{0}.html".format(homepage_style) %}
-    {% endblock %}
-  </div>
+</section>
+<!-- *****  end INTRO    ***** -->
+
+
+<!-- *****  RICERCA    ***** -->
+<section id="ricerca" class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-3  col-lg-2">
+                <h2>Cerca dati</h2>
+            </div>
+            <div class="col-xs-12 col-md-9 col-lg-10">
+                {% snippet 'home/snippets/search.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- *****  end RICERCA    ***** -->
+
+
+<section id="dati" class="jumbotron">
+    <!-- *****  MAIN CONTENT, dati    ***** -->
+    <a id="main-content"  class="sr-only"></a>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <ul role="tablist" class="nav nav-tabs newTheme" id="tabs-dati">
+                  <li class="active"><a data-toggle="tab" role="tab" href="#ultimi">Ultimi dati aggiunti</a></li>
+                  <li><a data-toggle="tab" role="tab" href="#consultati">Dati piu consultati</a></li>
+                </ul>
+                <div class="table-wrapper tab-content newTheme">
+                    <div id="ultimi" class="tab-pane active">
+                        <table class="table">
+                            <!-- classi ai tr per motivi di compatibilita con ie8 (:nth-child supportato da ie9+) -->
+                            <tr class="intestazione">
+                                <th><span>Nome</span></th>
+                                <th><span>Argomento</span></th>
+                                <th><span>Data</span></th>
+                            </tr>
+    			    {% for dataset in h.most_recent_datasets() %}
+				{% set timestamp = h.render_datetime(dataset.metadata_created, with_hours=True) %}
+				{% set url = h.url_for('dataset_read', action='read', id=dataset.name) %}
+    	                        <tr class="{{ loop.cycle('odd', 'even') }}">
+	                            <td><a href="{{ url }}">{{ dataset.title }}</a></td>
+		                    <td>{% if dataset.groups %} 
+					    {% set group_url = h.url_for('group_read', action='read', id=dataset.groups[0].name) %}
+					    <a href="{{ group_url }}">
+						{{ dataset.groups[0].display_name }} 
+  					    </a>
+					{% else %} - {% endif %}
+				    </td>
+		                    <td>{{ timestamp }}</td>
+		                </tr>
+    			    {% endfor %}
+                        </table>
+                    </div>
+                    <div id="consultati" class="tab-pane">
+                        <table class="table">
+
+                            <!-- classi ai tr per motivi di compatibilita con ie8 (:nth-child supportato da ie9+) -->
+                            <tr class="intestazione">
+                                <th><span>Nome</span></th>
+                                <th><span>Argomento</span></th>
+                                <th><span>Visite</span></th>
+                            </tr>
+    			    {% for dataset in h.most_popular_datasets() %}
+				{% set url = h.url_for('dataset_read', action='read', id=dataset.name) %}
+    	                        <tr class="{{ loop.cycle('odd', 'even') }}">
+	                            <td><a href="{{ url }}">{{ dataset.title }}</a></td>
+		                    <td>{% if dataset.groups %} 
+					    {% set group_url = h.url_for('group_read', action='read', id=dataset.groups[0].name) %}
+					    <a href="{{ group_url }}">
+						{{ dataset.groups[0].display_name }} 
+  					    </a>
+					{% else %} - {% endif %}
+				    </td>
+		                    <td>{{ h.get_dataset_with_tracking(dataset).tracking_summary.total }}</td>
+		                </tr>
+    			    {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- twitter -->
+            <div class="col-xs-12 col-sm-4 twitter">
+
+		<a class="twitter-timeline" href="https://twitter.com/search?q=%23opendata+lang%3Ait" data-widget-id="512530518714241024">Tweet su "#opendata lang:it"</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		<!--
+               <a class="twitter-timeline"  href="https://twitter.com/search?q=%23opendata+lang%3Ait"  data-widget-id="502759324700004352">Tweet su "#opendata lang:it"</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		-->
+            </div>
+            <!-- end twitter -->
+        </div>
+    </div>
+    <!-- *****  end MAIN CONTENT, dati    ***** -->
+</section>
+
+<div class="homepage layout-{{ homepage_style }}">
+      <div class="container">
+        {{ self.flash() }}
+      </div>
+        
+    {#% block primary_content %#}
+      {#% snippet "home/layout{0}.html".format(homepage_style) %#}
+    {#% endblock %#}    
+</div>
+
+
 {% endblock %}
+</body>
+
+

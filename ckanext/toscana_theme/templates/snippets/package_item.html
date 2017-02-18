@@ -1,0 +1,63 @@
+{#
+Displays a single of dataset.
+
+package        - A package to display.
+item_class     - The class name to use on the list item.
+hide_resources - If true hides the resources (default: false).
+banner         - If true displays a popular banner (default: false).
+truncate       - The length to trucate the description to (default: 180)
+truncate_title - The length to truncate the title to (default: 80).
+
+Example:
+
+  {% snippet 'snippets/package_item.html', package=c.datasets[0] %}
+
+#}
+{% set truncate = truncate or 180 %}
+{% set truncate_title = truncate_title or 80 %}
+{% set title = package.title or package.name %}
+{% set notes = h.markdown_extract(package.notes, extract_length=truncate) %}
+
+<div class="row">
+  {% block package_item_content %}
+    <div class="col-xs-12">
+      <h2 class="dataset-heading">
+        {% if package.private %}
+          <span class="dataset-private label label-inverse">
+            <i class="icon-lock"></i>
+            {{ _('Private') }}
+          </span>
+        {% endif %}
+        {{ h.link_to(h.truncate(title, truncate_title), h.url_for(controller='package', action='read', id=package.name)) }}
+        {% if package.get('state', '').startswith('draft') %}
+          <span class="label label-info">{{ _('Draft') }}</span>
+        {% elif package.get('state', '').startswith('deleted') %}
+          <span class="label label-important">{{ _('Deleted') }}</span>
+        {% endif %}
+        {{ h.popular('recent views', package.tracking_summary.recent, min=10) if package.tracking_summary }}
+      </h2>
+      <h3>{{ h.link_to(package.organization.title, h.url_for(controller='organization', action='read', id=package.organization.name)) }}</h3>
+      {% if banner %}
+        <span class="banner">{{ _('Popular') }}</span>
+      {% endif %}
+      {% if notes %}
+        <p>{{ notes|urlize }}</p>
+      {% endif %}
+    
+    {% if package.resources and not hide_resources %}
+      <div class="div-table stat ">
+        <div class="div-cell odd"><span class="etichetta"><i class="fa fa-eye"></i> VISUALIZZAZIONI</span>{% if package.tracking_summary %} {{ package.tracking_summary.total }} {% endif %}</div>                                
+        <!--
+        <div class="div-cell even"><span class="etichetta"><i class="fa fa-cloud-download"></i> IDEE</span> 3</div>
+        -->
+        <div class="div-cell even"><span class="etichetta"><i class="fa fa-thumb-tack"></i> RISORSE</span>{{ package.num_resources }}</div>
+        <div class="div-cell odd"><span class="etichetta"><i class="fa fa-tag"></i> FORMATO</span>
+          {% for resource in h.dict_list_reduce(package.resources, 'format') %}          
+            <a href="{{ h.url_for(controller='package', action='read', id=package.name) }}" data-format="{{ resource.lower() }}">{{ resource }}{% if not loop.last %},{% endif %}</a>         
+          {% endfor %}       
+        </div>
+      </div>      
+    {% endif %}
+    </div>   
+  {% endblock %}
+</div>

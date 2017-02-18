@@ -3,10 +3,19 @@
 {% block styles %}
   {{ super() }}
 
-  {% resource 'rt_theme/font-awesome/css/font-awesome.css' %}
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|Merriweather:400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
-  {% resource 'rt_theme/css/font_style.css' %}
-  {% resource 'rt_theme/css/stili.css' %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Dati Toscana">
+    <meta name="format-detection" content="telephone=no">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600|Merriweather:400,700|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    {% resource 'rt_theme/font-awesome-ckan/css/font-awesome.css' %}
+    {% resource 'rt_theme/font-awesome/css/font-awesome.css' %}
+    <link rel="stylesheet" type="text/css" href="/css/custom-grid-framework.css" />      
+    <link rel="stylesheet" type="text/css" href="/css/font_style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/stili.css" />      
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
 
   <!-- IE8 support for HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -17,4 +26,4 @@
 
 {% endblock %}
 
-{% block bodytag %} {{ super() }} class="index" {% endblock %}
+

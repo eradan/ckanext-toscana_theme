@@ -1,0 +1,141 @@
+<!-- ***********	FOOTER	*********** -->
+<footer class="text-center">
+    <div class="footer-above">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col col-xs-6 col-md-3 img-footer text-left">
+                    <div class="footer-logo-ot inner">
+			<img src="/images/img_logo_footer.png" alt="Logo Open Toscana" class="">
+			<span class="sr-only">OPEN TOSCANA</span>
+			<!--
+                        <img src="/images/tondo_rosso.png" alt="Logo Open Toscana" class="img-logo" /><span class="sr-only">O</span><span style="margin-left:5px;" class="red">PEN</span><span>TOSCANA</span>
+			-->
+                    </div>
+                </div>
+                <div class="footer-col col-xs-6 col-md-3 text-left">
+                  <ul class="elenco-siti clearfix inner">
+                      <li><a class="nuovafinestra" href="http://servizi.toscana.it"><span class="green">SERVIZI</span>TOSCANA</a></li>
+                      <li><a href="/"><span class="blue">DATI</span>TOSCANA</a></li>
+                      <li><a class="nuovafinestra" href="http://partecipa.toscana.it"><span class="yellow">PARTECIPA</span>TOSCANA</a></li>
+                      <li><a class="nuovafinestra" href="http://app.toscana.it"><span class="purple">APP</span>TOSCANA</a></li>
+                      <li><a class="nuovafinestra" href="http://cloud.toscana.it"><span class="orange">CLOUD</span>TOSCANA</a></li>
+                      <li class="last"><a class="nuovafinestra" href="http://startup.toscana.it"><span class="light-green">STARTUP</span>TOSCANA</a></li>
+                  </ul>
+                </div>
+                <div class="footer-col col-xs-6 col-md-3 text-left">
+
+		    <div class="titolo">CONTATTI</div> 
+		    <div class="font_corpo serif"> 
+ 			Regione Toscana<br> Assessorato alla Presidenza<br> Piazza Duomo 10 - 50122 Firenze<br> 
+		        <a href="mailto:info@open.toscana.it" class="footer_link">info@open.toscana.it</a> 
+		    </div> 
+		    <div class="font_corpo serif" style="margin-top:10px;"> 
+			<a href="http://open.toscana.it/privacy" class="nuovafinestra footer_link">Privacy e netiquette</a> 
+		    </div> 
+
+                    <!--div class="font_corpo serif">
+                        via Roma 14, Firenze<br/>
+                        <span style="margin-right: 6px;">T</span> 39580085543<br/>
+                        <span style="margin-right: 6px;">F</span> 39580085543<br/>
+                        <a class="footer_link" href="mailto:info@open.toscana.it">info@open.toscana.it</a>
+                    </div-->
+                    <ul class="list-inline footer_socials">
+                        <li><a class="nuovafinestra" href="https://twitter.com/opentoscana"><i class="fa fa-fw fa-twitter"></i></a></li>
+                        <li><a class="nuovafinestra" href="https://www.facebook.com/opentoscana"><i class="fa fa-fw fa-facebook"></i></a></li>
+                        <li><a class="nuovafinestra" href="https://plus.google.com/u/0/111083620001487599353/posts"><i class="fa fa-fw fa-google-plus"></i></a></li>
+			<li><a class="nuovafinestra" href="https://www.linkedin.com/in/opentoscana"><i class="fa fa-fw fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col col-xs-6 col-md-3 img-footer">
+                    <div class="inner">
+                        <img src="/images/logo_toscana_payoff.jpg" alt="Logo Regione Toscana" class="img-responsive footer_logo" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      {% block footer_content %}
+        
+          {% block footer_nav %}
+            <div class="footer-col col-xs-6 col-md-3 text-left">
+              <nav class="footer-links">
+                <ul class="unstyled">
+                  {% block footer_links %}
+                    {% block header_site_navigation_tabs %}
+                      {{ h.build_nav_main(
+                        ('organizations_index', _('Organizations')),
+                        ('group_index', _('Groups')),
+                        ('about', _('About')),
+                        ('credits', _('Credits'))
+                      ) }}
+                    {% endblock %}               
+                  {% endblock %}           
+                </ul>
+              </nav>
+            </div>
+            <div class="footer-col col-xs-6 col-md-3 text-left">
+              <ul class="unstyled serif">
+                {% block footer_links_ckan %}
+                  {% set api_url = 'http://docs.ckan.org/en/{0}/api/index.html'.format(g.ckan_doc_version) %}
+                  {% set api_url = 'http://docs.ckan.org/en/{0}/api/index.html'.format('ckan-2.5.3') %}
+                  <li><a href="{{ api_url }}">{{ _('CKAN API') }}</a></li>
+                  <li><a href="http://www.okfn.org/">{{ _('Open Knowledge Foundation') }}</a></li>
+                  <li><a href="http://www.opendefinition.org/okd/"><img src="http://assets.okfn.org/images/ok_buttons/od_80x15_blue.png"></a></li>
+                {% endblock %}
+              </ul>
+            </div>
+          {% endblock %}
+        
+          {% block footer_lang %}
+            <div class="footer-col col-xs-6 col-md-3 text-left serif">
+            {% snippet "snippets/language_selector.html" %}
+            </div>
+          {% endblock %}          
+          {% block footer_attribution %}
+            <div class="footer-col col-xs-6 col-md-3 text-right serif">
+              <div class="attribution">                
+                <!-- <p class="hyperborea-logo">Realizzato da <a class="hide-text hyperborea-footer-logo nuovafinestra" href="http://www.hyperborea.com">Hyperborea</a></p> -->
+                <p class="ckan-logo">{% trans %}Powered by <a class="hide-text ckan-footer-logo nuovafinestra" href="http://ckan.org">CKAN</a>{% endtrans %}</p>
+              </div>
+            </div>
+          {% endblock %}
+
+          
+        
+      {% endblock %}
+    </div>
+  </div>
+
+  {% block footer_debug %}
+    {% if g.debug %}
+      {% include 'snippets/debug.html' %}
+    {% endif %}
+  {% endblock %}
+</footer>
+
+<!-- ***********	CONTENUTI NASCOSTI RIGHT ZONE - si rendono visibili con l'attivazione di uno dei due link (login o altri siti)	*********** -->
+<section class="overlay">
+    <div class="login-form closed">
+        <div class="form-wrapper">
+            <div style="color:#FFF; font-size:2em; text-align:center;"></div>
+        </div>
+    </div>
+    <div class="sites closed">
+        <div class="my-container">
+            <ul>
+                <li><a class="nuovafinestra" href="http://servizi.toscana.it"><img src="/images/tondo_verde.png" alt="loghetto" class="img-site" /> <span class="green">SERVIZI</span>TOSCANA</a></li>
+                <li><a class="nuovafinestra" href="http://partecipa.toscana.it"><img src="/images/tondo_giallo.png" alt="loghetto" class="img-site" /> <span class="yellow">PARTECIPA</span>TOSCANA</a></li>
+                <li><a class="nuovafinestra" href="http://app.toscana.it"><img src="/images/tondo_viola.png" alt="loghetto" class="img-site" /> <span class="purple">APP</span>TOSCANA</a></li>
+                <li><a class="nuovafinestra" href="http://cloud.toscana.it"><img src="/images/tondo_arancio.png" alt="loghetto" class="img-site" /> <span class="orange">CLOUD</span>TOSCANA</a></li>
+                <li class="last"><a class="nuovafinestra" href="http://startup.toscana.it"><img src="/images/tondo_lime.png" alt="loghetto" class="img-site" /> <span class="light-green">STARTUP</span>TOSCANA</a></li>
+            </ul>
+        </div>
+    </div>
+</section>

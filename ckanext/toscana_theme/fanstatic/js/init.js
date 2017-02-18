@@ -7,12 +7,14 @@ $(document).ready(function(){
             event.preventDefault();
     });
     
+    /*
     if($('.responsive-button').length > 0){
         $('.responsive-button').scrollToFixed({
             marginTop: $('#top-bar').outerHeight() + $('#nav-interna').outerHeight(),
             zIndex: 999
         });
     }
+    */
     
     /* sistemo altezza box homepage */ 
     if($('.index #header').length > 0){
@@ -54,7 +56,7 @@ $(document).ready(function(){
         }
     });
     
-    $(".right-zone .action a").click(function(event){
+    $(".right-zone .action a.altri-siti").click(function(event){
         event.preventDefault();
         $(this).toggleClass("open");
         
