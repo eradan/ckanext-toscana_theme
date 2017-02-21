@@ -136,7 +136,8 @@
   					    </a>
 					{% else %} - {% endif %}
 				    </td>
-		                    <td>{{ h.get_dataset_with_tracking(dataset).tracking_summary.total }}</td>
+		                    <td>{{ h.get_dataset_with_tracking(dataset).tracking_summary.total }}
+		                    {{ dataset.tracking_summary.total }}</td>
 		                </tr>
     			    {% endfor %}
                         </table>

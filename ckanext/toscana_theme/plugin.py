@@ -94,6 +94,7 @@ class DatiToscanaThemePlugin(plugins.SingletonPlugin):
         # Template helper function names should begin with the name of the
         # extension they belong to, to avoid clashing with functions from
         # other extensions.
+
         return {'get_dataset_with_tracking': get_dataset_with_tracking,
 		'most_popular_datasets': most_popular_datasets,
 		'most_recent_datasets': most_recent_datasets}
