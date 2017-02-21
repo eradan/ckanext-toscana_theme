@@ -1154,3 +1154,78 @@ footer .img-logo{
 .timeline-header.customisable-border {
     display: none;
 }
+
+/*************
+*** Report ***
+*************/
+
+#reports .clearfix:after {
+    clear: none;
+}
+
+.report-summary {
+    border-left: none;
+    border-radius: 3px;
+    background: #dee;
+    position: relative;
+    padding: 0;
+    min-height: 150px;
+    margin-bottom: 30px
+}
+
+@media(min-width:1200px) {
+    .report-summary {
+        min-height: 310px
+    }
+}
+
+@media(max-width:767px) {
+    .report-summary {
+        min-height: 0
+    }
+}
+
+.report-summary .report-title {
+    border-radius: 3px;
+    border-top-width: 39px;
+    border-right-width: 0;
+    /*background: #fff;*/
+    padding: 10px 14px;
+    font-size: 17px;
+    line-height: 22px;
+    color: #393939
+}
+
+.report-summary .report-body {
+    /*background: #fff; */
+    border-right: 0;
+    padding: 0 14px 10px;
+    font-size: 13px;
+    line-height: 18px;
+    color: #393939
+}
+
+.report-summary .report-body .dataset-publisher {
+    display: none
+}
+
+.report-summary .report-description {
+    margin-bottom: 25px
+}
+
+.report-summary .view-report-link {
+    display: block;
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid #e0e0e0;
+    text-align: right;
+    color: #666;
+    padding: 10px 22px 11px 0
+}
+
+.report-summary .view-report-link:hover {
+    color: #999;
+    text-decoration: none
+}

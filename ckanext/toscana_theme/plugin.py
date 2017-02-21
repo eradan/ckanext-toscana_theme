@@ -43,13 +43,15 @@ def get_dataset_with_tracking(dataset):
     '''Return a dataset with tracking summary.'''
     context = {'model': model, 'session': model.Session,
         'user': c.user or c.author, 'auth_user_obj': c.userobj}
-    print dataset;
+    #print "**** DATASET ****"
+    #print dataset;
     data_dict = {
         'id': dataset['id'],
 	'include_tracking': True
     }
     result = toolkit.get_action('package_show')(context, data_dict)
-    print result
+    #print "**** RESULT ****"
+    #print result
     return result
 
 class DatiToscanaThemePlugin(plugins.SingletonPlugin):

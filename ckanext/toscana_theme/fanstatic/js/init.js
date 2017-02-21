@@ -1,5 +1,13 @@
 $(document).ready(function(){
     /* INIT */
+
+    $("#report-table").tablesorter({
+	dateFormat: "it",
+    });
+    $(".js-auto-submit").change(function () {
+	$(this).closest("form").submit();
+    });
+
     $('a.nuovafinestra').click(function(){
             $(this).attr('target','_blank');
     });
@@ -166,7 +174,8 @@ $(document).ready(function(){
         if($(".overlay .sites").is(":visible") && $("body").width() > 480)
             centraLinkOverlay();
     });
- 
+
+
 });
 
 
