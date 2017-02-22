@@ -18,9 +18,10 @@
  <div id="nav-interna">
     <div class="container">
         <div class="row">
-            <div class="col-xs-4 no-padding"><a {% block navDataset %} class="pulsante" href="/dataset">CERCA DATI</a{% endblock -%}></div>
-            <div class="col-xs-4 no-padding"><a {% block navContact %} class="pulsante" href="/contact-us">SVILUPPA LA TUA IDEA</a {% endblock -%}></div>
-            <div class="col-xs-4 no-padding"><a class="pulsante nuovafinestra" href="http://open.toscana.it/web/open-data/home">PARTECIPA ALLA STANZA</a></div>
+            <div class="col-xs-3 no-padding"><a {% block navDataset %} class="pulsante" href="/dataset">CERCA DATI</a{% endblock -%}></div>
+            <div class="col-xs-3 no-padding"><a {% block navContact %} class="pulsante" href="/contact-us">SVILUPPA LA TUA IDEA</a {% endblock -%}></div>
+            <div class="col-xs-3 no-padding"><a class="pulsante nuovafinestra" href="http://open.toscana.it/web/open-data/home">PARTECIPA ALLA STANZA</a></div>
+            <div class="col-xs-3 no-padding"><a {% block navReport %} class="pulsante" href="/report">REPORT</a {% endblock -%}></div>
         </div>
     </div>    
  </div>
@@ -30,6 +31,7 @@
          <li><a {% block navDatasetMobile %} class="pulsante" href="/dataset">CERCA DATI</a{% endblock -%}></li>
          <li><a {% block navContactMobile %} class="pulsante" href="/contact-us">SVILUPPA LA TUA IDEA</a {% endblock -%}></li>
          <li><a class="pulsante nuovafinestra" href="http://open.toscana.it/web/open-data/home">PARTECIPA ALLA STANZA</a></li>
+         <li><a {% block navReportMobile %} class="pulsante" href="/report">REPORT</a {% endblock -%}></li>
      </ul>
  </div>
   

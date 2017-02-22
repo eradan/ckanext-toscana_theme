@@ -84,6 +84,9 @@ class DatiToscanaThemePlugin(plugins.SingletonPlugin):
         map.connect('credits', '/credits',
             controller='ckanext.toscana_theme.controller:CreditsController',
             action='index')
+        map.connect('report', '/report',
+            controller='ckanext.toscana_theme.controller:ReportController',
+            action='index')
         return map  
 
     def get_helpers(self):
